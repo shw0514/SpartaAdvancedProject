@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             Instantiate(unitOne, AllieSpawnPoint.transform.position, Quaternion.identity);
+            unitOne.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 255 / 255f, 255 / 255f);
             yield return new WaitForSeconds(7);
         }    
     }
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             Instantiate(unitTwo, AllieSpawnPoint.transform.position, Quaternion.identity);
+            unitTwo.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 255 / 255f, 255 / 255f);
             yield return new WaitForSeconds(8);
         }
     }

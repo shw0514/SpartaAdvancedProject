@@ -21,19 +21,42 @@ public class ButtonManager : MonoBehaviour
 
     public void BuyUnitOne()
     {
-        UIManager.instance.gold -= UIManager.instance.priceOfUnitOne;
-        GameManager.instance.SpawnUnitOne();
+        if (UIManager.instance.gold >= UIManager.instance.priceOfUnitOne)
+        {
+            UIManager.instance.gold -= UIManager.instance.priceOfUnitOne;
+            GameManager.instance.SpawnUnitOne();
+        }
+        else
+        {
+            UIManager.instance.InstantiateWarningMessage();
+        }
+        
     }
 
     public void BuyUnitTwo()
     {
-        UIManager.instance.gold -= UIManager.instance.priceOfUnitTwo;
-        GameManager.instance.SpawnUnitOne();
+        if (UIManager.instance.gold >= UIManager.instance.priceOfUnitTwo)
+        {
+            UIManager.instance.gold -= UIManager.instance.priceOfUnitTwo;
+            GameManager.instance.SpawnUnitTwo();
+        }
+        else
+        {
+            UIManager.instance.InstantiateWarningMessage();
+        }
+            
     }
 
     public void BuyResourceGetherer()
     {
-        UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
-        UIManager.instance.ResourceGethererAdded();
+        if (UIManager.instance.gold >= UIManager.instance.priceOfResourceGetherer)
+        {
+            UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
+            UIManager.instance.ResourceGethererAdded();
+        }
+        else
+        {
+            UIManager.instance.InstantiateWarningMessage();
+        }
     }
 }

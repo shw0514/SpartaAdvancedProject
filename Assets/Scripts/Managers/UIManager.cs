@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI unitTwoPrice;
     public TextMeshProUGUI resourceGethererPrice;
 
+    public Animator warningMessageAnimator;
+
     [HideInInspector]
     public int gold;
     public int priceOfUnitOne = 150;
@@ -61,5 +63,16 @@ public class UIManager : MonoBehaviour
             AddGold();
             yield return new WaitForSeconds(0.4f);
         }
+    }
+
+    public void InstantiateWarningMessage()
+    {
+        warningMessageAnimator.SetBool("isWarned", true);
+        Invoke("StopAnimation", 0.4f);
+    }
+
+    public void StopAnimation()
+    {
+        warningMessageAnimator.SetBool("isWarned", false);
     }
 }
