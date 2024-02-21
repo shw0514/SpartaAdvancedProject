@@ -27,7 +27,21 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             Instantiate(unitOne, AllieSpawnPoint.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(7);
         }    
+    }
+
+    public void SpawnUnitTwo()
+    {
+        StartCoroutine("UnitTwo");
+    }
+
+    IEnumerator UnitTwo()
+    {
+        while (true)
+        {
+            Instantiate(unitTwo, AllieSpawnPoint.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(8);
+        }
     }
 }

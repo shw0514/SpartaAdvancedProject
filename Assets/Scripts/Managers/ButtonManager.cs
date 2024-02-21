@@ -25,6 +25,12 @@ public class ButtonManager : MonoBehaviour
         GameManager.instance.SpawnUnitOne();
     }
 
+    public void BuyUnitTwo()
+    {
+        UIManager.instance.gold -= UIManager.instance.priceOfUnitTwo;
+        GameManager.instance.SpawnUnitOne();
+    }
+
     public void BuyResourceGetherer()
     {
         UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
