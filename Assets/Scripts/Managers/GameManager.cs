@@ -6,8 +6,28 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public GameObject unitOne;
+    public GameObject unitTwo;
+
+    public GameObject AllieSpawnPoint;
+    public GameObject EnemySpawnPoint;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    public void SpawnUnitOne()
+    {
+        StartCoroutine("UnitOne");
+    }
+
+    IEnumerator UnitOne()
+    {
+        while (true)
+        {
+            Instantiate(unitOne, AllieSpawnPoint.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(10);
+        }    
     }
 }

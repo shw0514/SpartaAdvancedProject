@@ -18,4 +18,16 @@ public class ButtonManager : MonoBehaviour
         shopPanel.SetActive(false);
         shopButton.SetActive(true);
     }
+
+    public void BuyUnitOne()
+    {
+        UIManager.instance.gold -= UIManager.instance.priceOfUnitOne;
+        GameManager.instance.SpawnUnitOne();
+    }
+
+    public void BuyResourceGetherer()
+    {
+        UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
+        UIManager.instance.ResourceGethererAdded();
+    }
 }
