@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void SpawnUnitOne()
     {
         StartCoroutine("UnitOne");

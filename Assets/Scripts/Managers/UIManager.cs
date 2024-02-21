@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         priceOfUnitOne = 150;
         priceOfUnitTwo = 250;
-        priceOfResourceGetherer = 200;
+        priceOfResourceGetherer = 800;
         unitOneCount = 0;
         unitTwoCount = 0;
         resourceGethererCount = 0;
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
         while (true)
         {
             AddGold();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
