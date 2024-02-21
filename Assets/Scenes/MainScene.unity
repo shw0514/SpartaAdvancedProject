@@ -961,7 +961,7 @@ MonoBehaviour:
   UnitTwoCount: {fileID: 1660539562}
   ResourceGethererCount: {fileID: 1342497099}
   warningMessageAnimator: {fileID: 205052892}
-  gethererWarningAnimator: {fileID: 0}
+  gethererWarningAnimator: {fileID: 1746290537}
   gold: 0
   priceOfUnitOne: 150
   priceOfUnitTwo: 250
