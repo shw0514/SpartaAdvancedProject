@@ -11,17 +11,26 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI unitOnePrice;
     public TextMeshProUGUI unitTwoPrice;
     public TextMeshProUGUI resourceGethererPrice;
+    public TextMeshProUGUI UnitOneCount;
+    public TextMeshProUGUI UnitTwoCount;
+    public TextMeshProUGUI ResourceGethererCount;
 
     public Animator warningMessageAnimator;
+    public Animator gethererWarningAnimator;
 
     [HideInInspector]
     public int gold;
-    public int priceOfUnitOne = 150;
-    public int priceOfUnitTwo = 250;
-    public int priceOfResourceGetherer = 400;
-
-    public float resourceGetherdelay;
-
+    [HideInInspector]
+    public int priceOfUnitOne;
+    [HideInInspector]
+    public int priceOfUnitTwo;
+    [HideInInspector]
+    public int priceOfResourceGetherer;
+    [HideInInspector]
+    public int unitOneCount;
+    [HideInInspector]
+    public int unitTwoCount;
+    [HideInInspector]
     public int resourceGethererCount;
 
     private void Awake()
@@ -31,14 +40,18 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        resourceGetherdelay = 0;
+        priceOfUnitOne = 150;
+        priceOfUnitTwo = 250;
+        priceOfResourceGetherer = 200;
+        unitOneCount = 0;
+        unitTwoCount = 0;
         resourceGethererCount = 0;
         gold = 1200;
         unitOnePrice.text = priceOfUnitOne.ToString();
         unitTwoPrice.text = priceOfUnitTwo.ToString();
         resourceGethererPrice.text = priceOfResourceGetherer.ToString();
 
-        InvokeRepeating("AddGold", 0f, 0.4f);
+        InvokeRepeating("AddGold", 0f, 0.3f);
     }
 
     public void ResourceGethererAdded()
@@ -49,6 +62,9 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         goldText.text = gold.ToString();
+        UnitOneCount.text = unitOneCount.ToString();
+        UnitTwoCount.text = unitTwoCount.ToString();
+        ResourceGethererCount.text = resourceGethererCount.ToString();
     }
 
     private void AddGold()
@@ -61,18 +77,29 @@ public class UIManager : MonoBehaviour
         while (true)
         {
             AddGold();
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
-    public void InstantiateWarningMessage()
+    public void InstantiateMineralWarningMessage()
     {
         warningMessageAnimator.SetBool("isWarned", true);
-        Invoke("StopAnimation", 0.4f);
+        Invoke("StopAnimation_Mineral", 0.3f);
     }
 
-    public void StopAnimation()
+    public void InstantiateGethererWarningMessage()
+    {
+        gethererWarningAnimator.SetBool("isConstructed", true);
+        Invoke("StopAnimation_Getherer", 0.3f);
+    }
+
+    public void StopAnimation_Mineral()
     {
         warningMessageAnimator.SetBool("isWarned", false);
+    }
+
+    public void StopAnimation_Getherer()
+    {
+        gethererWarningAnimator.SetBool("isConstructed", false);
     }
 }

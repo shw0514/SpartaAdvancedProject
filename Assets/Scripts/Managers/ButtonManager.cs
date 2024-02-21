@@ -25,10 +25,12 @@ public class ButtonManager : MonoBehaviour
         {
             UIManager.instance.gold -= UIManager.instance.priceOfUnitOne;
             GameManager.instance.SpawnUnitOne();
+            UIManager.instance.unitOneCount++;
+                
         }
         else
         {
-            UIManager.instance.InstantiateWarningMessage();
+            UIManager.instance.InstantiateGethererWarningMessage();
         }
         
     }
@@ -39,24 +41,33 @@ public class ButtonManager : MonoBehaviour
         {
             UIManager.instance.gold -= UIManager.instance.priceOfUnitTwo;
             GameManager.instance.SpawnUnitTwo();
+            UIManager.instance.unitTwoCount++;
         }
         else
         {
-            UIManager.instance.InstantiateWarningMessage();
+            UIManager.instance.InstantiateMineralWarningMessage();
         }
             
     }
 
     public void BuyResourceGetherer()
     {
-        if (UIManager.instance.gold >= UIManager.instance.priceOfResourceGetherer)
+        if (UIManager.instance.gold >= UIManager.instance.priceOfResourceGetherer)   
         {
-            UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
-            UIManager.instance.ResourceGethererAdded();
-        }
+            if (UIManager.instance.resourceGethererCount < 5)
+            {
+                UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
+                UIManager.instance.ResourceGethererAdded();
+                UIManager.instance.resourceGethererCount++;
+            }
+            else
+            {
+                UIManager.instance.InstantiateGethererWarningMessage();
+            }
+        }  
         else
         {
-            UIManager.instance.InstantiateWarningMessage();
+            UIManager.instance.InstantiateMineralWarningMessage();
         }
     }
 }
