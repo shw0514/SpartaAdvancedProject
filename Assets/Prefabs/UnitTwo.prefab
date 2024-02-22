@@ -164,5 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d16a66c4cc11b54f80ba4dc06ec28d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 1000
   characterRenderer: {fileID: 897803197968736533}

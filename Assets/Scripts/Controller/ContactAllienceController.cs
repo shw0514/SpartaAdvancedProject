@@ -8,7 +8,6 @@ public class ContactAllienceController : AllienceController
     private float createTime = 0.0f;
     private float moveTime = 0.1f;
     private bool isCanMove = false;
-    [SerializeField][Range(0f, 1000f)] private float followRange;
     private GameObject target;
     private bool _isCollidingWithTarget;
 
@@ -26,10 +25,6 @@ public class ContactAllienceController : AllienceController
 
         createTime += Time.deltaTime;
         Vector2 direction = Vector2.zero;
-        if (DistanceToTarget() < followRange)
-        {
-            direction = DirectionToTarget();
-        }
         Rotate(direction);
         if (createTime >= moveTime)
             isCanMove = true;
