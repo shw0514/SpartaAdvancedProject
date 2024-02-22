@@ -483,7 +483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b7d2b70cd36d4a848981c10fc1561a59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4335,6 +4335,7 @@ MonoBehaviour:
   unitTwo: {fileID: 1015452732355612210, guid: 11cd71729e68e63488877ee4d61cb23b, type: 3}
   AllieSpawnPoint: {fileID: 1686580927}
   EnemySpawnPoint: {fileID: 603728811}
+  enemyTag: Enemy
 --- !u!4 &1970009293
 Transform:
   m_ObjectHideFlags: 0
@@ -4422,7 +4423,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b7d2b70cd36d4a848981c10fc1561a59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

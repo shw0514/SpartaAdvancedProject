@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    UIManager uiManager;
     public GameObject shopPanel;
     public GameObject shopButton;
 
+    private void Start()
+    {
+        uiManager = UIManager.instance;
+    }
     public void OpenShop()
     {
         shopPanel.SetActive(true);
@@ -21,53 +26,53 @@ public class ButtonManager : MonoBehaviour
 
     public void BuyUnitOne()
     {
-        if (UIManager.instance.gold >= UIManager.instance.priceOfUnitOne)
+        if (uiManager.gold >= uiManager.priceOfUnitOne)
         {
-            UIManager.instance.gold -= UIManager.instance.priceOfUnitOne;
+            uiManager.gold -= uiManager.priceOfUnitOne;
             GameManager.instance.SpawnUnitOne();
-            UIManager.instance.unitOneCount++;
+            uiManager.unitOneCount++;
                 
         }
         else
         {
-            UIManager.instance.InstantiateGethererWarningMessage();
+            uiManager.InstantiateGethererWarningMessage();
         }
         
     }
 
     public void BuyUnitTwo()
     {
-        if (UIManager.instance.gold >= UIManager.instance.priceOfUnitTwo)
+        if (uiManager.gold >= uiManager.priceOfUnitTwo)
         {
-            UIManager.instance.gold -= UIManager.instance.priceOfUnitTwo;
+            uiManager.gold -= uiManager.priceOfUnitTwo;
             GameManager.instance.SpawnUnitTwo();
-            UIManager.instance.unitTwoCount++;
+            uiManager.unitTwoCount++;
         }
         else
         {
-            UIManager.instance.InstantiateMineralWarningMessage();
+            uiManager.InstantiateMineralWarningMessage();
         }
             
     }
 
     public void BuyResourceGetherer()
     {
-        if (UIManager.instance.gold >= UIManager.instance.priceOfResourceGetherer)   
+        if (uiManager.gold >= uiManager.priceOfResourceGetherer)   
         {
-            if (UIManager.instance.resourceGethererCount < 5)
+            if (uiManager.resourceGethererCount < 5)
             {
-                UIManager.instance.gold -= UIManager.instance.priceOfResourceGetherer;
-                UIManager.instance.ResourceGethererAdded();
-                UIManager.instance.resourceGethererCount++;
+                uiManager.gold -= uiManager.priceOfResourceGetherer;
+                uiManager.ResourceGethererAdded();
+                uiManager.resourceGethererCount++;
             }
             else
             {
-                UIManager.instance.InstantiateGethererWarningMessage();
+                uiManager.InstantiateGethererWarningMessage();
             }
         }  
         else
         {
-            UIManager.instance.InstantiateMineralWarningMessage();
+            uiManager.InstantiateMineralWarningMessage();
         }
     }
 }

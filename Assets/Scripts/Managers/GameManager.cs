@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour
     public GameObject AllieSpawnPoint;
     public GameObject EnemySpawnPoint;
 
+    public Transform Enemy { get; private set; }
+    [SerializeField] private string enemyTag = "Enemy";
+
     private void Awake()
     {
         instance = this;
+        Enemy = GameObject.FindGameObjectWithTag(enemyTag).transform;
     }
 
     private void Start()
@@ -32,6 +36,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             unitOne.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 255 / 255f, 255 / 255f);
+            unitOne.tag = "Player";
             Instantiate(unitOne, AllieSpawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(7);
         }    
@@ -47,6 +52,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             unitTwo.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 255 / 255f, 255 / 255f);
+            unitTwo.tag = "Player";
             Instantiate(unitTwo, AllieSpawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(8);
         }
