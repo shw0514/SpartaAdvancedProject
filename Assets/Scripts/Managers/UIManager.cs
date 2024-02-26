@@ -10,10 +10,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI unitOnePrice;
     public TextMeshProUGUI unitTwoPrice;
-    public TextMeshProUGUI resourceGethererPrice;
+    public TextMeshProUGUI resourceGathererPrice;
     public TextMeshProUGUI UnitOneCount;
     public TextMeshProUGUI UnitTwoCount;
-    public TextMeshProUGUI ResourceGethererCount;
+    public TextMeshProUGUI ResourceGathererCount;
 
     public Animator warningMessageAnimator;
     public Animator gethererWarningAnimator;
@@ -25,13 +25,13 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public int priceOfUnitTwo;
     [HideInInspector]
-    public int priceOfResourceGetherer;
+    public int priceOfResourceGatherer;
     [HideInInspector]
     public int unitOneCount;
     [HideInInspector]
     public int unitTwoCount;
     [HideInInspector]
-    public int resourceGethererCount;
+    public int resourceGathererCount;
 
     private void Awake()
     {
@@ -42,21 +42,21 @@ public class UIManager : MonoBehaviour
     {
         priceOfUnitOne = 150;
         priceOfUnitTwo = 250;
-        priceOfResourceGetherer = 800;
+        priceOfResourceGatherer = 800;
         unitOneCount = 0;
         unitTwoCount = 0;
-        resourceGethererCount = 0;
+        resourceGathererCount = 0;
         gold = 1200;
         unitOnePrice.text = priceOfUnitOne.ToString();
         unitTwoPrice.text = priceOfUnitTwo.ToString();
-        resourceGethererPrice.text = priceOfResourceGetherer.ToString();
+        resourceGathererPrice.text = priceOfResourceGatherer.ToString();
 
         InvokeRepeating("AddGold", 0f, 0.3f);
     }
 
-    public void ResourceGethererAdded()
+    public void ResourceGathererAdded()
     {
-        StartCoroutine("GetheringGold");
+        StartCoroutine("GatheringGold");
     }
 
     private void Update()
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
         goldText.text = gold.ToString();
         UnitOneCount.text = unitOneCount.ToString();
         UnitTwoCount.text = unitTwoCount.ToString();
-        ResourceGethererCount.text = resourceGethererCount.ToString();
+        resourceGathererPrice.text = priceOfResourceGatherer.ToString();
     }
 
     private void AddGold()
@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
         gold += 1;
     }
 
-    IEnumerator GetheringGold()
+    IEnumerator GatheringGold()
     {
         while (true)
         {
@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
         Invoke("StopAnimation_Mineral", 0.3f);
     }
 
-    public void InstantiateGethererWarningMessage()
+    public void InstantiateGathererWarningMessage()
     {
         gethererWarningAnimator.SetBool("isConstructed", true);
         Invoke("StopAnimation_Getherer", 0.3f);
@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour
         warningMessageAnimator.SetBool("isWarned", false);
     }
 
-    public void StopAnimation_Getherer()
+    public void StopAnimation_Gatherer()
     {
         gethererWarningAnimator.SetBool("isConstructed", false);
     }

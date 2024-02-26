@@ -35,7 +35,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            uiManager.InstantiateGethererWarningMessage();
+            uiManager.InstantiateGathererWarningMessage();
         }
         
     }
@@ -55,19 +55,19 @@ public class ButtonManager : MonoBehaviour
             
     }
 
-    public void BuyResourceGetherer()
+    public void BuyResourceGatherer()
     {
-        if (uiManager.gold >= uiManager.priceOfResourceGetherer)   
+        if (uiManager.gold >= uiManager.priceOfResourceGatherer)   
         {
-            if (uiManager.resourceGethererCount < 5)
+            if (uiManager.resourceGathererCount < 5)
             {
-                uiManager.gold -= uiManager.priceOfResourceGetherer;
-                uiManager.ResourceGethererAdded();
-                uiManager.resourceGethererCount++;
+                uiManager.gold -= uiManager.priceOfResourceGatherer;
+                uiManager.ResourceGathererAdded();
+                uiManager.resourceGathererCount++;
             }
             else
             {
-                uiManager.InstantiateGethererWarningMessage();
+                uiManager.InstantiateGathererWarningMessage();
             }
         }  
         else
