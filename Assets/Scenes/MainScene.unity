@@ -956,19 +956,19 @@ MonoBehaviour:
   goldText: {fileID: 1302700439}
   unitOnePrice: {fileID: 1933458813}
   unitTwoPrice: {fileID: 718179923}
-  resourceGethererPrice: {fileID: 686871935}
+  resourceGathererPrice: {fileID: 0}
   UnitOneCount: {fileID: 1861864487}
   UnitTwoCount: {fileID: 1660539562}
-  ResourceGethererCount: {fileID: 1342497099}
+  ResourceGathererCount: {fileID: 0}
   warningMessageAnimator: {fileID: 205052892}
   gethererWarningAnimator: {fileID: 1746290537}
   gold: 0
   priceOfUnitOne: 150
   priceOfUnitTwo: 250
-  priceOfResourceGetherer: 400
+  priceOfResourceGatherer: 0
   unitOneCount: 0
   unitTwoCount: 0
-  resourceGethererCount: 0
+  resourceGathererCount: 0
 --- !u!4 &493441156
 Transform:
   m_ObjectHideFlags: 0
@@ -2759,7 +2759,7 @@ GameObject:
   - component: {fileID: 1485505193}
   - component: {fileID: 1485505195}
   m_Layer: 5
-  m_Name: ResourGetherer
+  m_Name: ResourceGatherer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3484,7 +3484,7 @@ GameObject:
   - component: {fileID: 1746290538}
   - component: {fileID: 1746290537}
   m_Layer: 5
-  m_Name: GethererWarning
+  m_Name: GathererWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4573,7 +4573,7 @@ GameObject:
   - component: {fileID: 2102628378}
   - component: {fileID: 2102628377}
   m_Layer: 5
-  m_Name: GethererImage
+  m_Name: GathererImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
